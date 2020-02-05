@@ -14,7 +14,11 @@ var port = process.env.PORT || 3000;
 let dns = require("dns");
 
 /** this project needs a db !! **/
-mongoose.connect(process.env.MONGOLAB_URI);
+
+mongoose.connect(process.env.MONGOLAB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 app.use(cors());
 app.use(express.urlencoded());
